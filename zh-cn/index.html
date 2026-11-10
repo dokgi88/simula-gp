@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simula GP：赛车车队经理</title>
+<meta name="description" content="研发赛车、训练维修团队、制定比赛策略，体验当赛车车队领队的乐趣。">
+<meta name="theme-color" content="#06070a">
+<link rel="icon" href="../icon.png">
+<link rel="canonical" href="https://dokgi88.github.io/simula-gp/zh-cn/">
+<link rel="alternate" hreflang="en" href="https://dokgi88.github.io/simula-gp/">
+<link rel="alternate" hreflang="ko" href="https://dokgi88.github.io/simula-gp/ko/">
+<link rel="alternate" hreflang="ja" href="https://dokgi88.github.io/simula-gp/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://dokgi88.github.io/simula-gp/zh-cn/">
+<link rel="alternate" hreflang="zh-Hant" href="https://dokgi88.github.io/simula-gp/zh-tw/">
+<link rel="alternate" hreflang="es" href="https://dokgi88.github.io/simula-gp/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://dokgi88.github.io/simula-gp/pt-br/">
+<link rel="alternate" hreflang="fr" href="https://dokgi88.github.io/simula-gp/fr/">
+<link rel="alternate" hreflang="de" href="https://dokgi88.github.io/simula-gp/de/">
+<link rel="alternate" hreflang="ru" href="https://dokgi88.github.io/simula-gp/ru/">
+<link rel="alternate" hreflang="x-default" href="https://dokgi88.github.io/simula-gp/">
+<meta property="og:title" content="Simula GP：赛车车队经理">
+<meta property="og:description" content="研发赛车、训练维修团队、制定比赛策略，体验当赛车车队领队的乐趣。">
+<meta property="og:image" content="https://dokgi88.github.io/simula-gp/title.jpg">
+<meta property="og:type" content="website">
+<style>
+:root { --bg:#06070a; --panel:#0b0c0f; --panel2:#1a1b20; --text:#f5f5f7; --dim:#999eab; --accent:#e50a1a; --line:rgba(255,255,255,.1); color-scheme:dark; }
+@font-face { font-family:"Exo 2"; src:url("../Exo2.ttf") format("truetype"); font-weight:100 900; font-display:swap; }
+* { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+body { margin:0; background:var(--bg); color:var(--text); font:16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Hiragino Sans", "PingFang SC", "Noto Sans", "Noto Sans KR", sans-serif; }
+a { color:inherit; overflow-wrap:anywhere; }
+h1, h2, .brand { font-family:"Exo 2", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Hiragino Sans", "PingFang SC", sans-serif; }
+nav.langs { display:flex; flex-wrap:wrap; gap:4px 14px; font-size:14px; color:var(--dim); }
+nav.langs a { text-decoration:none; } nav.langs a:hover { color:var(--text); }
+nav.langs a[aria-current] { color:var(--text); font-weight:600; box-shadow:inset 0 -2px 0 var(--accent); }
+
+.wrap { max-width:1080px; margin:0 auto; padding:0 16px; }
+header { border-bottom:1px solid var(--line); }
+header .wrap { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 24px; padding-top:14px; padding-bottom:14px; }
+.brand { font-size:22px; font-weight:800; letter-spacing:.02em; text-decoration:none; white-space:nowrap; }
+.brand span { background:var(--accent); padding:0 7px; margin-left:5px; }
+.hero { padding:48px 0 32px; display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:center; }
+.hero > div { min-width:0; }
+.hero img { width:128px; height:128px; border-radius:24px; display:block; }
+.hero h1 { font-size:clamp(30px, 5vw, 46px); line-height:1.1; margin:0 0 6px; font-weight:800; }
+.sub { font-size:19px; color:var(--dim); margin:0 0 14px; }
+.lead { margin:0; max-width:680px; }
+.chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+.chip { background:var(--panel2); padding:5px 12px; font-size:14px; border-radius:3px; }
+.chip.soon { background:var(--accent); font-weight:700; }
+.shots { display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; padding:8px 0 40px; }
+.shots img { width:100%; height:auto; display:block; border-radius:3px; background:var(--panel); }
+.about { max-width:760px; padding-bottom:24px; }
+.about .tag { font-size:clamp(22px, 3.4vw, 30px); font-weight:800; line-height:1.3; margin:0 0 16px; }
+.about h2 { font-size:18px; letter-spacing:.03em; margin:36px 0 8px; padding-left:12px; border-left:3px solid var(--accent); }
+.about ul { padding-left:20px; margin:8px 0; } .about li { margin:6px 0; }
+.about p.note { color:var(--dim); font-size:14px; margin-top:32px; }
+footer { border-top:1px solid var(--line); margin-top:32px; background:var(--panel); }
+footer .wrap { padding-top:28px; padding-bottom:40px; }
+footer h2 { font-size:18px; margin:0 0 6px; }
+footer p { margin:0 0 6px; } .small { color:var(--dim); font-size:14px; }
+footer .links { margin-top:18px; display:flex; flex-wrap:wrap; gap:6px 18px; font-size:14px; }
+@media (max-width:640px) {
+  .hero { grid-template-columns:1fr; gap:16px; padding-top:32px; }
+  .hero img { width:88px; height:88px; border-radius:18px; }
+  .shots { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<!-- tools/web_pages.py 가 store/listing/*.md 에서 굽는다 — 손으로 고치지 않는다 -->
+<header><div class="wrap"><a class="brand" href="https://dokgi88.github.io/simula-gp/zh-cn/">SIMULA<span>GP</span></a><nav class="langs"><a href="https://dokgi88.github.io/simula-gp/">English</a> <a href="https://dokgi88.github.io/simula-gp/ko/">한국어</a> <a href="https://dokgi88.github.io/simula-gp/ja/">日本語</a> <a href="https://dokgi88.github.io/simula-gp/zh-cn/" aria-current="page">简体中文</a> <a href="https://dokgi88.github.io/simula-gp/zh-tw/">繁體中文</a> <a href="https://dokgi88.github.io/simula-gp/es/">Español</a> <a href="https://dokgi88.github.io/simula-gp/pt-br/">Português (Brasil)</a> <a href="https://dokgi88.github.io/simula-gp/fr/">Français</a> <a href="https://dokgi88.github.io/simula-gp/de/">Deutsch</a> <a href="https://dokgi88.github.io/simula-gp/ru/">Русский</a></nav></div></header>
+<main class="wrap">
+<section class="hero">
+<img src="../icon.png" width="128" height="128" alt="">
+<div>
+<h1>Simula GP：赛车车队经理</h1>
+<p class="sub">打造属于你的冠军车队</p>
+<p class="lead">握方向盘的是车手，决定胜负的是你。研发赛车、签约车手、训练维修团队，在维修墙上指挥比赛策略，在24条原创微缩赛道上像看电视转播一样观赛。完全离线，无广告，支持10种语言。</p>
+<div class="chips"><span class="chip soon">即将推出</span><span class="chip">iPhone · iPad · Android · Steam (Windows · macOS)</span></div>
+</div>
+</section>
+<section class="shots">
+<img src="../title.jpg" width="1440" height="666" loading="eager" alt="Simula GP：赛车车队经理">
+<img src="../race.jpg" width="1440" height="666" loading="lazy" alt="Simula GP：赛车车队经理">
+<img src="../hq.jpg" width="1440" height="666" loading="lazy" alt="Simula GP：赛车车队经理">
+<img src="../season.jpg" width="1440" height="666" loading="lazy" alt="Simula GP：赛车车队经理">
+</section>
+<section class="about">
+<p class="tag">握方向盘的是车手，决定胜负的是你。</p>
+<p>在《Simula GP》中，你将成为十支赛车车队之一的领队。研发赛车、签约车手、训练维修团队，在比赛中下达关键指令，带领一支中游车队冲击总冠军。</p>
+<h2>打造更快的赛车</h2>
+<ul>
+<li>研发前翼、尾翼、底板、侧箱、悬挂、刹车、动力单元、变速箱共8个部件</li>
+<li>所有研发都受预算帽限制；排名越靠后的车队分到的风洞时间越多，赛场格局随时可能洗牌</li>
+<li>建设风洞、模拟器、工厂和进站训练中心，夯实车队根基</li>
+</ul>
+<h2>经营你的车队</h2>
+<ul>
+<li>签约自由车手，谈判合同，控制薪资</li>
+<li>年轻车手逐季成长，老将实力慢慢下滑，换人时机要看准</li>
+<li>维修团队通过训练和实战进站积累经验，目标是2秒级进站</li>
+<li>每个比赛周末完成赞助商目标，赚取额外收入</li>
+<li>管理动力单元配额——超出数量将受到发车位处罚</li>
+<li>淘汰制排位赛、天气预报、伤病与替补车手、退役与新秀、名人堂、赞助合同、事故维修费——围场每个赛季都在变化</li>
+</ul>
+<h2>比赛周末</h2>
+<p>练习赛摸索调校，调整尾翼角度，参加排位赛，然后制定策略：用什么轮胎、进站几次、何时进站。</p>
+<h2>像看直播一样观赛，像领队一样指挥</h2>
+<p>比赛基于真实物理模拟自动进行，以电视转播的方式呈现：导播镜头捕捉精彩瞬间，计时塔显示每一个差距，车队无线电随时汇报。在维修墙上你可以：</p>
+<ul>
+<li>切换节奏模式和ERS模式</li>
+<li>从5种轮胎配方中任选进站</li>
+<li>下达车队指令，让两位车手交换位置</li>
+</ul>
+<p>每场比赛都不一样。雨来了又停，虚拟安全车打乱策略，撞车和机械故障导致退赛。长直道上，直道模式与超车模式决定攻防成败。</p>
+<h2>微缩世界赛道</h2>
+<p>24条遍布世界各地的原创赛道，以移轴微缩风格呈现，完整的24站赛季包含6个冲刺赛周末。赛季无限延续——不止赢一次冠军，而是用多年时间建立王朝。</p>
+<h2>轻松畅玩</h2>
+<ul>
+<li>完全离线，无需联网</li>
+<li>Wi-Fi 对战：与同一 Wi-Fi 下的朋友用各自的生涯车队进行友谊赛</li>
+<li>无广告，无内购</li>
+<li>无需账号，不收集任何数据</li>
+<li>手机、平板、PC（Steam）均可畅玩，支持触屏、键鼠和手柄（Steam Deck）</li>
+<li>支持10种语言</li>
+</ul>
+<p class="note">游戏中的车队、车手和赛道均为虚构，本游戏与任何现实赛车赛事无关。</p>
+</section>
+</main>
+<footer id="support"><div class="wrap">
+<h2>支持</h2>
+<p>如有疑问、错误反馈或建议，欢迎随时发邮件给我们。</p>
+<p><a href="mailto:dokgi88@gmail.com">dokgi88@gmail.com</a></p>
+<div class="links"><a href="https://dokgi88.github.io/simula-gp-privacy/zh-cn/">隐私政策</a><span class="small">© 2026 Yeoreumi</span></div>
+</div></footer>
+</body>
+</html>

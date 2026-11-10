@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simula GP: Босс команды</title>
+<meta name="description" content="Разрабатывай болид, тренируй механиков, выбирай стратегию. Менеджер команды.">
+<meta name="theme-color" content="#06070a">
+<link rel="icon" href="../icon.png">
+<link rel="canonical" href="https://dokgi88.github.io/simula-gp/ru/">
+<link rel="alternate" hreflang="en" href="https://dokgi88.github.io/simula-gp/">
+<link rel="alternate" hreflang="ko" href="https://dokgi88.github.io/simula-gp/ko/">
+<link rel="alternate" hreflang="ja" href="https://dokgi88.github.io/simula-gp/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://dokgi88.github.io/simula-gp/zh-cn/">
+<link rel="alternate" hreflang="zh-Hant" href="https://dokgi88.github.io/simula-gp/zh-tw/">
+<link rel="alternate" hreflang="es" href="https://dokgi88.github.io/simula-gp/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://dokgi88.github.io/simula-gp/pt-br/">
+<link rel="alternate" hreflang="fr" href="https://dokgi88.github.io/simula-gp/fr/">
+<link rel="alternate" hreflang="de" href="https://dokgi88.github.io/simula-gp/de/">
+<link rel="alternate" hreflang="ru" href="https://dokgi88.github.io/simula-gp/ru/">
+<link rel="alternate" hreflang="x-default" href="https://dokgi88.github.io/simula-gp/">
+<meta property="og:title" content="Simula GP: Босс команды">
+<meta property="og:description" content="Разрабатывай болид, тренируй механиков, выбирай стратегию. Менеджер команды.">
+<meta property="og:image" content="https://dokgi88.github.io/simula-gp/title.jpg">
+<meta property="og:type" content="website">
+<style>
+:root { --bg:#06070a; --panel:#0b0c0f; --panel2:#1a1b20; --text:#f5f5f7; --dim:#999eab; --accent:#e50a1a; --line:rgba(255,255,255,.1); color-scheme:dark; }
+@font-face { font-family:"Exo 2"; src:url("../Exo2.ttf") format("truetype"); font-weight:100 900; font-display:swap; }
+* { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+body { margin:0; background:var(--bg); color:var(--text); font:16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Hiragino Sans", "PingFang SC", "Noto Sans", "Noto Sans KR", sans-serif; }
+a { color:inherit; overflow-wrap:anywhere; }
+h1, h2, .brand { font-family:"Exo 2", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Hiragino Sans", "PingFang SC", sans-serif; }
+nav.langs { display:flex; flex-wrap:wrap; gap:4px 14px; font-size:14px; color:var(--dim); }
+nav.langs a { text-decoration:none; } nav.langs a:hover { color:var(--text); }
+nav.langs a[aria-current] { color:var(--text); font-weight:600; box-shadow:inset 0 -2px 0 var(--accent); }
+
+.wrap { max-width:1080px; margin:0 auto; padding:0 16px; }
+header { border-bottom:1px solid var(--line); }
+header .wrap { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 24px; padding-top:14px; padding-bottom:14px; }
+.brand { font-size:22px; font-weight:800; letter-spacing:.02em; text-decoration:none; white-space:nowrap; }
+.brand span { background:var(--accent); padding:0 7px; margin-left:5px; }
+.hero { padding:48px 0 32px; display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:center; }
+.hero > div { min-width:0; }
+.hero img { width:128px; height:128px; border-radius:24px; display:block; }
+.hero h1 { font-size:clamp(30px, 5vw, 46px); line-height:1.1; margin:0 0 6px; font-weight:800; }
+.sub { font-size:19px; color:var(--dim); margin:0 0 14px; }
+.lead { margin:0; max-width:680px; }
+.chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+.chip { background:var(--panel2); padding:5px 12px; font-size:14px; border-radius:3px; }
+.chip.soon { background:var(--accent); font-weight:700; }
+.shots { display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; padding:8px 0 40px; }
+.shots img { width:100%; height:auto; display:block; border-radius:3px; background:var(--panel); }
+.about { max-width:760px; padding-bottom:24px; }
+.about .tag { font-size:clamp(22px, 3.4vw, 30px); font-weight:800; line-height:1.3; margin:0 0 16px; }
+.about h2 { font-size:18px; letter-spacing:.03em; margin:36px 0 8px; padding-left:12px; border-left:3px solid var(--accent); }
+.about ul { padding-left:20px; margin:8px 0; } .about li { margin:6px 0; }
+.about p.note { color:var(--dim); font-size:14px; margin-top:32px; }
+footer { border-top:1px solid var(--line); margin-top:32px; background:var(--panel); }
+footer .wrap { padding-top:28px; padding-bottom:40px; }
+footer h2 { font-size:18px; margin:0 0 6px; }
+footer p { margin:0 0 6px; } .small { color:var(--dim); font-size:14px; }
+footer .links { margin-top:18px; display:flex; flex-wrap:wrap; gap:6px 18px; font-size:14px; }
+@media (max-width:640px) {
+  .hero { grid-template-columns:1fr; gap:16px; padding-top:32px; }
+  .hero img { width:88px; height:88px; border-radius:18px; }
+  .shots { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<!-- tools/web_pages.py 가 store/listing/*.md 에서 굽는다 — 손으로 고치지 않는다 -->
+<header><div class="wrap"><a class="brand" href="https://dokgi88.github.io/simula-gp/ru/">SIMULA<span>GP</span></a><nav class="langs"><a href="https://dokgi88.github.io/simula-gp/">English</a> <a href="https://dokgi88.github.io/simula-gp/ko/">한국어</a> <a href="https://dokgi88.github.io/simula-gp/ja/">日本語</a> <a href="https://dokgi88.github.io/simula-gp/zh-cn/">简体中文</a> <a href="https://dokgi88.github.io/simula-gp/zh-tw/">繁體中文</a> <a href="https://dokgi88.github.io/simula-gp/es/">Español</a> <a href="https://dokgi88.github.io/simula-gp/pt-br/">Português (Brasil)</a> <a href="https://dokgi88.github.io/simula-gp/fr/">Français</a> <a href="https://dokgi88.github.io/simula-gp/de/">Deutsch</a> <a href="https://dokgi88.github.io/simula-gp/ru/" aria-current="page">Русский</a></nav></div></header>
+<main class="wrap">
+<section class="hero">
+<img src="../icon.png" width="128" height="128" alt="">
+<div>
+<h1>Simula GP: Босс команды</h1>
+<p class="sub">Управляй гоночной командой</p>
+<p class="lead">За рулём — пилот. Побеждаешь — ты. Разрабатывай болид, подписывай пилотов, тренируй механиков и командуй стратегией с командного мостика, а каждая гонка идёт как телетрансляция на 24 оригинальных миниатюрных трассах. Полностью офлайн, без рекламы, 10 языков.</p>
+<div class="chips"><span class="chip soon">Скоро</span><span class="chip">iPhone · iPad · Android · Steam (Windows · macOS)</span></div>
+</div>
+</section>
+<section class="shots">
+<img src="../title.jpg" width="1440" height="666" loading="eager" alt="Simula GP: Босс команды">
+<img src="../race.jpg" width="1440" height="666" loading="lazy" alt="Simula GP: Босс команды">
+<img src="../hq.jpg" width="1440" height="666" loading="lazy" alt="Simula GP: Босс команды">
+<img src="../season.jpg" width="1440" height="666" loading="lazy" alt="Simula GP: Босс команды">
+</section>
+<section class="about">
+<p class="tag">За рулём — пилот. Побеждаешь — ты.</p>
+<p>В Simula GP ты руководишь одной из десяти гоночных команд. Разрабатывай болид, подписывай пилотов, тренируй механиков и принимай решения, которые превращают середняка в чемпиона. А потом смотри, как всё это работает на трассе.</p>
+<h2>БОЛИД БЫСТРЕЕ</h2>
+<ul>
+<li>Восемь узлов для доработки: переднее и заднее антикрылья, днище, понтоны, подвеска, тормоза, силовая установка и коробка передач</li>
+<li>Каждое улучшение упирается в потолок бюджета, а часы в аэротрубе достаются прежде всего отстающим командам — расклад сил постоянно меняется</li>
+<li>Строй инфраструктуру: аэродинамическая труба, симулятор, завод и центр тренировки пит-стопов</li>
+</ul>
+<h2>УПРАВЛЯЙ КОМАНДОЙ</h2>
+<ul>
+<li>Подписывай свободных пилотов, веди переговоры по контрактам, следи за зарплатами</li>
+<li>Молодые пилоты растут с каждым сезоном, ветераны постепенно сдают. Не упусти момент для смены</li>
+<li>Тренируй механиков, пока двухсекундные пит-стопы не станут нормой. Опыт дают и тренировки, и настоящие остановки</li>
+<li>Выполняй задания спонсоров каждый уик-энд и получай дополнительный доход</li>
+<li>Следи за лимитом силовых установок — перебор грозит штрафом на старте</li>
+<li>Живой паддок: квалификация на выбывание, прогноз погоды, травмы и резервные пилоты, уход из спорта, новички и зал славы, спонсорские контракты и расходы на ремонт после аварий</li>
+</ul>
+<h2>ГОНОЧНЫЙ УИК-ЭНД</h2>
+<p>Свободные заезды, чтобы найти настройки, регулировка антикрыльев, квалификация и, наконец, стратегия: какие шины, сколько остановок и когда заезжать в боксы.</p>
+<h2>СМОТРИ КАК ТРАНСЛЯЦИЮ — И КОМАНДУЙ</h2>
+<p>Гонки рассчитываются на реальной физической модели и показываются как телетрансляция: режиссёр выбирает кадры, табло времени показывает каждый отрыв, а командное радио держит в курсе событий. С командного мостика можно:</p>
+<ul>
+<li>Переключать режим темпа и режим ERS</li>
+<li>Вызывать в боксы на любой из пяти составов шин</li>
+<li>Отдавать командные приказы и менять пилотов местами</li>
+</ul>
+<p>Двух одинаковых гонок не бывает. Дождь начинается и стихает, виртуальная машина безопасности ломает стратегию, случаются аварии и сходы из-за поломок, а на длинных прямых режим прямой и режим обгона решают исход борьбы.</p>
+<h2>МИНИАТЮРНЫЕ ТРАССЫ</h2>
+<p>Двадцать четыре оригинальные трассы по всему миру в очаровательном стиле тилт-шифт миниатюры — полный сезон из 24 этапов с шестью спринт-уик-эндами. Сезоны идут без конца — строй династию годами.</p>
+<h2>ИГРАЙ КАК УДОБНО</h2>
+<ul>
+<li>Полностью офлайн</li>
+<li>Гонка по Wi-Fi: товарищеские заезды с друзьями в одной сети, у каждого своя команда из карьеры</li>
+<li>Без рекламы и встроенных покупок</li>
+<li>Без аккаунта, никакого сбора данных</li>
+<li>Играй на смартфоне, планшете или ПК (Steam): сенсор, мышь и клавиатура или геймпад (Steam Deck)</li>
+<li>10 языков</li>
+</ul>
+<p class="note">Все команды, пилоты и трассы вымышлены. Simula GP не связан ни с одной реальной гоночной серией.</p>
+</section>
+</main>
+<footer id="support"><div class="wrap">
+<h2>Поддержка</h2>
+<p>Вопросы, сообщения об ошибках и отзывы — пишите нам в любое время.</p>
+<p><a href="mailto:dokgi88@gmail.com">dokgi88@gmail.com</a></p>
+<div class="links"><a href="https://dokgi88.github.io/simula-gp-privacy/ru/">Политика конфиденциальности</a><span class="small">© 2026 Yeoreumi</span></div>
+</div></footer>
+</body>
+</html>

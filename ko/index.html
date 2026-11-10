@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>시뮬라 GP: 레이싱 감독</title>
+<meta name="description" content="차를 개발하고, 피트 크루를 훈련하고, 전략을 짜라. 레이싱 팀 감독 시뮬레이션.">
+<meta name="theme-color" content="#06070a">
+<link rel="icon" href="../icon.png">
+<link rel="canonical" href="https://dokgi88.github.io/simula-gp/ko/">
+<link rel="alternate" hreflang="en" href="https://dokgi88.github.io/simula-gp/">
+<link rel="alternate" hreflang="ko" href="https://dokgi88.github.io/simula-gp/ko/">
+<link rel="alternate" hreflang="ja" href="https://dokgi88.github.io/simula-gp/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://dokgi88.github.io/simula-gp/zh-cn/">
+<link rel="alternate" hreflang="zh-Hant" href="https://dokgi88.github.io/simula-gp/zh-tw/">
+<link rel="alternate" hreflang="es" href="https://dokgi88.github.io/simula-gp/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://dokgi88.github.io/simula-gp/pt-br/">
+<link rel="alternate" hreflang="fr" href="https://dokgi88.github.io/simula-gp/fr/">
+<link rel="alternate" hreflang="de" href="https://dokgi88.github.io/simula-gp/de/">
+<link rel="alternate" hreflang="ru" href="https://dokgi88.github.io/simula-gp/ru/">
+<link rel="alternate" hreflang="x-default" href="https://dokgi88.github.io/simula-gp/">
+<meta property="og:title" content="시뮬라 GP: 레이싱 감독">
+<meta property="og:description" content="차를 개발하고, 피트 크루를 훈련하고, 전략을 짜라. 레이싱 팀 감독 시뮬레이션.">
+<meta property="og:image" content="https://dokgi88.github.io/simula-gp/title.jpg">
+<meta property="og:type" content="website">
+<style>
+:root { --bg:#06070a; --panel:#0b0c0f; --panel2:#1a1b20; --text:#f5f5f7; --dim:#999eab; --accent:#e50a1a; --line:rgba(255,255,255,.1); color-scheme:dark; }
+@font-face { font-family:"Exo 2"; src:url("../Exo2.ttf") format("truetype"); font-weight:100 900; font-display:swap; }
+* { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+body { margin:0; background:var(--bg); color:var(--text); font:16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Hiragino Sans", "PingFang SC", "Noto Sans", "Noto Sans KR", sans-serif; }
+a { color:inherit; overflow-wrap:anywhere; }
+h1, h2, .brand { font-family:"Exo 2", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Hiragino Sans", "PingFang SC", sans-serif; }
+nav.langs { display:flex; flex-wrap:wrap; gap:4px 14px; font-size:14px; color:var(--dim); }
+nav.langs a { text-decoration:none; } nav.langs a:hover { color:var(--text); }
+nav.langs a[aria-current] { color:var(--text); font-weight:600; box-shadow:inset 0 -2px 0 var(--accent); }
+
+.wrap { max-width:1080px; margin:0 auto; padding:0 16px; }
+header { border-bottom:1px solid var(--line); }
+header .wrap { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 24px; padding-top:14px; padding-bottom:14px; }
+.brand { font-size:22px; font-weight:800; letter-spacing:.02em; text-decoration:none; white-space:nowrap; }
+.brand span { background:var(--accent); padding:0 7px; margin-left:5px; }
+.hero { padding:48px 0 32px; display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:center; }
+.hero > div { min-width:0; }
+.hero img { width:128px; height:128px; border-radius:24px; display:block; }
+.hero h1 { font-size:clamp(30px, 5vw, 46px); line-height:1.1; margin:0 0 6px; font-weight:800; }
+.sub { font-size:19px; color:var(--dim); margin:0 0 14px; }
+.lead { margin:0; max-width:680px; }
+.chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+.chip { background:var(--panel2); padding:5px 12px; font-size:14px; border-radius:3px; }
+.chip.soon { background:var(--accent); font-weight:700; }
+.shots { display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; padding:8px 0 40px; }
+.shots img { width:100%; height:auto; display:block; border-radius:3px; background:var(--panel); }
+.about { max-width:760px; padding-bottom:24px; }
+.about .tag { font-size:clamp(22px, 3.4vw, 30px); font-weight:800; line-height:1.3; margin:0 0 16px; }
+.about h2 { font-size:18px; letter-spacing:.03em; margin:36px 0 8px; padding-left:12px; border-left:3px solid var(--accent); }
+.about ul { padding-left:20px; margin:8px 0; } .about li { margin:6px 0; }
+.about p.note { color:var(--dim); font-size:14px; margin-top:32px; }
+footer { border-top:1px solid var(--line); margin-top:32px; background:var(--panel); }
+footer .wrap { padding-top:28px; padding-bottom:40px; }
+footer h2 { font-size:18px; margin:0 0 6px; }
+footer p { margin:0 0 6px; } .small { color:var(--dim); font-size:14px; }
+footer .links { margin-top:18px; display:flex; flex-wrap:wrap; gap:6px 18px; font-size:14px; }
+@media (max-width:640px) {
+  .hero { grid-template-columns:1fr; gap:16px; padding-top:32px; }
+  .hero img { width:88px; height:88px; border-radius:18px; }
+  .shots { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<!-- tools/web_pages.py 가 store/listing/*.md 에서 굽는다 — 손으로 고치지 않는다 -->
+<header><div class="wrap"><a class="brand" href="https://dokgi88.github.io/simula-gp/ko/">SIMULA<span>GP</span></a><nav class="langs"><a href="https://dokgi88.github.io/simula-gp/">English</a> <a href="https://dokgi88.github.io/simula-gp/ko/" aria-current="page">한국어</a> <a href="https://dokgi88.github.io/simula-gp/ja/">日本語</a> <a href="https://dokgi88.github.io/simula-gp/zh-cn/">简体中文</a> <a href="https://dokgi88.github.io/simula-gp/zh-tw/">繁體中文</a> <a href="https://dokgi88.github.io/simula-gp/es/">Español</a> <a href="https://dokgi88.github.io/simula-gp/pt-br/">Português (Brasil)</a> <a href="https://dokgi88.github.io/simula-gp/fr/">Français</a> <a href="https://dokgi88.github.io/simula-gp/de/">Deutsch</a> <a href="https://dokgi88.github.io/simula-gp/ru/">Русский</a></nav></div></header>
+<main class="wrap">
+<section class="hero">
+<img src="../icon.png" width="128" height="128" alt="">
+<div>
+<h1>시뮬라 GP: 레이싱 감독</h1>
+<p class="sub">내 손으로 키우는 레이싱 팀</p>
+<p class="lead">운전대는 드라이버에게, 승리는 감독의 몫. 차를 개발하고, 드라이버를 영입하고, 피트 크루를 훈련하고, 피트월에서 전략을 지시하세요. 레이스는 24개 오리지널 미니어처 서킷에서 TV 중계처럼 펼쳐집니다. 완전 오프라인, 광고 없음, 10개 언어 지원.</p>
+<div class="chips"><span class="chip soon">출시 예정</span><span class="chip">iPhone · iPad · Android · Steam (Windows · macOS)</span></div>
+</div>
+</section>
+<section class="shots">
+<img src="../title.jpg" width="1440" height="666" loading="eager" alt="시뮬라 GP: 레이싱 감독">
+<img src="../race.jpg" width="1440" height="666" loading="lazy" alt="시뮬라 GP: 레이싱 감독">
+<img src="../hq.jpg" width="1440" height="666" loading="lazy" alt="시뮬라 GP: 레이싱 감독">
+<img src="../season.jpg" width="1440" height="666" loading="lazy" alt="시뮬라 GP: 레이싱 감독">
+</section>
+<section class="about">
+<p class="tag">운전대는 드라이버에게. 승리는 감독의 몫입니다.</p>
+<p>시뮬라 GP에서 당신은 10개 레이싱 팀 가운데 한 팀의 대표가 됩니다. 차를 개발하고, 드라이버를 영입하고, 피트 크루를 단련하고, 레이스 중 결정적인 지시를 내리세요. 중위권 팀을 챔피언으로 만드는 건 당신의 판단입니다.</p>
+<h2>더 빠른 차를 만든다</h2>
+<ul>
+<li>프런트 윙 · 리어 윙 · 플로어 · 사이드포드 · 서스펜션 · 브레이크 · 파워 유닛 · 기어박스, 8개 부품 개발</li>
+<li>모든 개발은 예산 상한 안에서. 풍동 시간은 순위가 낮은 팀일수록 더 받기 때문에 판도가 한곳에 머물지 않습니다</li>
+<li>풍동 · 시뮬레이터 · 공장 · 피트 훈련 센터를 지어 팀의 기반을 다지세요</li>
+</ul>
+<h2>팀을 운영한다</h2>
+<ul>
+<li>자유계약 드라이버 영입, 계약 협상, 연봉 관리</li>
+<li>젊은 드라이버는 시즌마다 성장하고, 베테랑은 서서히 기량이 떨어집니다. 바꿀 때를 놓치지 마세요</li>
+<li>피트 크루는 훈련과 실전 피트 스톱을 거치며 숙련도가 오릅니다. 목표는 2초대 피트 스톱</li>
+<li>주말마다 스폰서 목표를 달성해 추가 수입을</li>
+<li>파워 유닛 배정 관리 — 정해진 수를 넘기면 그리드 페널티</li>
+<li>녹아웃 예선, 날씨 예보, 부상과 리저브 드라이버, 은퇴 · 신인 · 명예의 전당, 스폰서 계약, 사고 수리비까지 — 시즌마다 살아 움직이는 패독</li>
+</ul>
+<h2>레이스 주말</h2>
+<p>연습 주행으로 세팅을 익히고, 윙 각도를 맞추고, 예선을 치른 뒤 전략을 짭니다. 어떤 타이어로, 몇 번 서고, 언제 피트에 들어올지.</p>
+<h2>중계처럼 보고, 감독처럼 지시한다</h2>
+<p>레이스는 실제 물리 시뮬레이션으로 진행되고, TV 중계처럼 펼쳐집니다. 중계 카메라가 장면을 잡고, 타이밍 타워가 간격을 보여 주고, 팀 무전이 상황을 전합니다. 피트월에서 할 수 있는 일:</p>
+<ul>
+<li>페이스 모드 · ERS 모드 전환</li>
+<li>5가지 타이어 컴파운드 중 골라 피트인</li>
+<li>팀 오더로 두 드라이버 순서 바꾸기</li>
+</ul>
+<p>같은 레이스는 없습니다. 비가 내렸다 그치고, 버추얼 세이프티카가 전략을 뒤흔들고, 사고와 기계 고장으로 리타이어가 나옵니다. 긴 직선에서는 스트레이트 모드와 오버테이크 모드가 승부를 가릅니다.</p>
+<h2>미니어처로 만난 세계 서킷</h2>
+<p>전 세계 24개 오리지널 서킷을 틸트시프트 미니어처 감성으로 담았습니다. 스프린트 주말 여섯 번이 낀 24라운드 시즌이 끝없이 이어집니다. 한 번의 우승이 아니라, 몇 년에 걸친 왕조를 세워 보세요.</p>
+<h2>편하게 즐기세요</h2>
+<ul>
+<li>완전 오프라인 — 인터넷 없이 플레이</li>
+<li>와이파이 레이스: 같은 와이파이의 친구들과 내 경력 팀으로 친선전</li>
+<li>광고 없음, 인앱 결제 없음</li>
+<li>계정 없음, 데이터 수집 없음</li>
+<li>폰 · 태블릿 · PC(Steam)에서 플레이 — 터치, 마우스 · 키보드, 컨트롤러(Steam Deck) 지원</li>
+<li>10개 언어 지원</li>
+</ul>
+<p class="note">모든 팀 · 드라이버 · 서킷은 가상입니다. 시뮬라 GP는 실제 어떤 레이싱 대회와도 관련이 없습니다.</p>
+</section>
+</main>
+<footer id="support"><div class="wrap">
+<h2>고객 지원</h2>
+<p>궁금한 점 · 버그 제보 · 의견은 언제든 메일로 보내 주세요.</p>
+<p><a href="mailto:dokgi88@gmail.com">dokgi88@gmail.com</a></p>
+<div class="links"><a href="https://dokgi88.github.io/simula-gp-privacy/ko/">개인정보처리방침</a><span class="small">© 2026 Yeoreumi</span></div>
+</div></footer>
+</body>
+</html>

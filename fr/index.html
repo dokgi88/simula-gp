@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simula GP : Team Manager</title>
+<meta name="description" content="Développez la voiture, entraînez les mécaniciens et décidez de la stratégie.">
+<meta name="theme-color" content="#06070a">
+<link rel="icon" href="../icon.png">
+<link rel="canonical" href="https://dokgi88.github.io/simula-gp/fr/">
+<link rel="alternate" hreflang="en" href="https://dokgi88.github.io/simula-gp/">
+<link rel="alternate" hreflang="ko" href="https://dokgi88.github.io/simula-gp/ko/">
+<link rel="alternate" hreflang="ja" href="https://dokgi88.github.io/simula-gp/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://dokgi88.github.io/simula-gp/zh-cn/">
+<link rel="alternate" hreflang="zh-Hant" href="https://dokgi88.github.io/simula-gp/zh-tw/">
+<link rel="alternate" hreflang="es" href="https://dokgi88.github.io/simula-gp/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://dokgi88.github.io/simula-gp/pt-br/">
+<link rel="alternate" hreflang="fr" href="https://dokgi88.github.io/simula-gp/fr/">
+<link rel="alternate" hreflang="de" href="https://dokgi88.github.io/simula-gp/de/">
+<link rel="alternate" hreflang="ru" href="https://dokgi88.github.io/simula-gp/ru/">
+<link rel="alternate" hreflang="x-default" href="https://dokgi88.github.io/simula-gp/">
+<meta property="og:title" content="Simula GP : Team Manager">
+<meta property="og:description" content="Développez la voiture, entraînez les mécaniciens et décidez de la stratégie.">
+<meta property="og:image" content="https://dokgi88.github.io/simula-gp/title.jpg">
+<meta property="og:type" content="website">
+<style>
+:root { --bg:#06070a; --panel:#0b0c0f; --panel2:#1a1b20; --text:#f5f5f7; --dim:#999eab; --accent:#e50a1a; --line:rgba(255,255,255,.1); color-scheme:dark; }
+@font-face { font-family:"Exo 2"; src:url("../Exo2.ttf") format("truetype"); font-weight:100 900; font-display:swap; }
+* { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+body { margin:0; background:var(--bg); color:var(--text); font:16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Hiragino Sans", "PingFang SC", "Noto Sans", "Noto Sans KR", sans-serif; }
+a { color:inherit; overflow-wrap:anywhere; }
+h1, h2, .brand { font-family:"Exo 2", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Hiragino Sans", "PingFang SC", sans-serif; }
+nav.langs { display:flex; flex-wrap:wrap; gap:4px 14px; font-size:14px; color:var(--dim); }
+nav.langs a { text-decoration:none; } nav.langs a:hover { color:var(--text); }
+nav.langs a[aria-current] { color:var(--text); font-weight:600; box-shadow:inset 0 -2px 0 var(--accent); }
+
+.wrap { max-width:1080px; margin:0 auto; padding:0 16px; }
+header { border-bottom:1px solid var(--line); }
+header .wrap { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 24px; padding-top:14px; padding-bottom:14px; }
+.brand { font-size:22px; font-weight:800; letter-spacing:.02em; text-decoration:none; white-space:nowrap; }
+.brand span { background:var(--accent); padding:0 7px; margin-left:5px; }
+.hero { padding:48px 0 32px; display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:center; }
+.hero > div { min-width:0; }
+.hero img { width:128px; height:128px; border-radius:24px; display:block; }
+.hero h1 { font-size:clamp(30px, 5vw, 46px); line-height:1.1; margin:0 0 6px; font-weight:800; }
+.sub { font-size:19px; color:var(--dim); margin:0 0 14px; }
+.lead { margin:0; max-width:680px; }
+.chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+.chip { background:var(--panel2); padding:5px 12px; font-size:14px; border-radius:3px; }
+.chip.soon { background:var(--accent); font-weight:700; }
+.shots { display:grid; grid-template-columns:repeat(2, 1fr); gap:12px; padding:8px 0 40px; }
+.shots img { width:100%; height:auto; display:block; border-radius:3px; background:var(--panel); }
+.about { max-width:760px; padding-bottom:24px; }
+.about .tag { font-size:clamp(22px, 3.4vw, 30px); font-weight:800; line-height:1.3; margin:0 0 16px; }
+.about h2 { font-size:18px; letter-spacing:.03em; margin:36px 0 8px; padding-left:12px; border-left:3px solid var(--accent); }
+.about ul { padding-left:20px; margin:8px 0; } .about li { margin:6px 0; }
+.about p.note { color:var(--dim); font-size:14px; margin-top:32px; }
+footer { border-top:1px solid var(--line); margin-top:32px; background:var(--panel); }
+footer .wrap { padding-top:28px; padding-bottom:40px; }
+footer h2 { font-size:18px; margin:0 0 6px; }
+footer p { margin:0 0 6px; } .small { color:var(--dim); font-size:14px; }
+footer .links { margin-top:18px; display:flex; flex-wrap:wrap; gap:6px 18px; font-size:14px; }
+@media (max-width:640px) {
+  .hero { grid-template-columns:1fr; gap:16px; padding-top:32px; }
+  .hero img { width:88px; height:88px; border-radius:18px; }
+  .shots { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<!-- tools/web_pages.py 가 store/listing/*.md 에서 굽는다 — 손으로 고치지 않는다 -->
+<header><div class="wrap"><a class="brand" href="https://dokgi88.github.io/simula-gp/fr/">SIMULA<span>GP</span></a><nav class="langs"><a href="https://dokgi88.github.io/simula-gp/">English</a> <a href="https://dokgi88.github.io/simula-gp/ko/">한국어</a> <a href="https://dokgi88.github.io/simula-gp/ja/">日本語</a> <a href="https://dokgi88.github.io/simula-gp/zh-cn/">简体中文</a> <a href="https://dokgi88.github.io/simula-gp/zh-tw/">繁體中文</a> <a href="https://dokgi88.github.io/simula-gp/es/">Español</a> <a href="https://dokgi88.github.io/simula-gp/pt-br/">Português (Brasil)</a> <a href="https://dokgi88.github.io/simula-gp/fr/" aria-current="page">Français</a> <a href="https://dokgi88.github.io/simula-gp/de/">Deutsch</a> <a href="https://dokgi88.github.io/simula-gp/ru/">Русский</a></nav></div></header>
+<main class="wrap">
+<section class="hero">
+<img src="../icon.png" width="128" height="128" alt="">
+<div>
+<h1>Simula GP : Team Manager</h1>
+<p class="sub">Dirigez votre écurie de course</p>
+<p class="lead">Vous ne pilotez pas : vous bâtissez l&#x27;écurie qui gagne. Développez la voiture, recrutez les pilotes, entraînez les mécaniciens et décidez de la stratégie depuis le muret, puis vivez chaque course comme une retransmission sur 24 circuits originaux en miniature. Hors ligne, sans pub, 10 langues.</p>
+<div class="chips"><span class="chip soon">Bientôt disponible</span><span class="chip">iPhone · iPad · Android · Steam (Windows · macOS)</span></div>
+</div>
+</section>
+<section class="shots">
+<img src="../title.jpg" width="1440" height="666" loading="eager" alt="Simula GP : Team Manager">
+<img src="../race.jpg" width="1440" height="666" loading="lazy" alt="Simula GP : Team Manager">
+<img src="../hq.jpg" width="1440" height="666" loading="lazy" alt="Simula GP : Team Manager">
+<img src="../season.jpg" width="1440" height="666" loading="lazy" alt="Simula GP : Team Manager">
+</section>
+<section class="about">
+<p class="tag">Le pilote tient le volant. C&#x27;est vous qui faites gagner l&#x27;équipe.</p>
+<p>Dans Simula GP, vous prenez la tête de l&#x27;une des dix écuries du plateau. Développez la voiture, recrutez vos pilotes, entraînez l&#x27;équipe des stands et prenez les décisions qui font d&#x27;une écurie de milieu de tableau un champion. Puis suivez le tout en direct sur la piste.</p>
+<h2>UNE VOITURE PLUS RAPIDE</h2>
+<ul>
+<li>Développez huit éléments : aileron avant, aileron arrière, fond plat, pontons, suspensions, freins, groupe propulseur et boîte de vitesses</li>
+<li>Chaque évolution se heurte au plafond budgétaire, et les heures de soufflerie avantagent les équipes en bas du classement : la hiérarchie bouge sans cesse</li>
+<li>Construisez vos infrastructures : soufflerie, simulateur, usine et centre d&#x27;entraînement aux arrêts</li>
+</ul>
+<h2>GÉREZ L&#x27;ÉCURIE</h2>
+<ul>
+<li>Recrutez des pilotes libres, négociez les contrats et maîtrisez la masse salariale</li>
+<li>Les jeunes pilotes progressent chaque saison, les vétérans déclinent peu à peu. À vous de choisir le bon moment pour passer le relais</li>
+<li>Entraînez vos mécaniciens jusqu&#x27;à ce que les arrêts en deux secondes deviennent la norme. Entraînements et vrais arrêts forgent leur expérience</li>
+<li>Remplissez les objectifs des sponsors chaque week-end pour des revenus en plus</li>
+<li>Gérez votre quota de groupes propulseurs : au-delà, pénalité sur la grille</li>
+<li>Un paddock vivant : qualifications à élimination, prévisions météo, blessures et pilotes de réserve, retraites, recrues et temple de la renommée, contrats de sponsoring et frais de réparation après accident</li>
+</ul>
+<h2>LE WEEK-END DE COURSE</h2>
+<p>Essais libres pour trouver les réglages, ajustement des ailerons, qualifications, puis la stratégie : quels pneus, combien d&#x27;arrêts, et quand rentrer au stand.</p>
+<h2>REGARDEZ COMME À LA TÉLÉ, DÉCIDEZ DEPUIS LE MUR</h2>
+<p>Les courses reposent sur une vraie simulation physique et se vivent comme une retransmission : la réalisation choisit les plans, la tour des chronos affiche chaque écart et la radio de l&#x27;équipe vous tient informé. Depuis le muret, vous pouvez :</p>
+<ul>
+<li>Changer le mode de rythme et le mode ERS</li>
+<li>Rappeler au stand avec n&#x27;importe lequel des cinq mélanges</li>
+<li>Donner des consignes d&#x27;équipe pour échanger les positions</li>
+</ul>
+<p>Aucune course ne se ressemble. La pluie arrive puis repart, une voiture de sécurité virtuelle bouscule la stratégie, il y a des accidents et des abandons sur casse, et dans les longues lignes droites, le mode ligne droite et le mode dépassement font la différence.</p>
+<h2>DES CIRCUITS MINIATURES</h2>
+<p>Vingt-quatre circuits originaux aux quatre coins du monde, dans un charmant style maquette en tilt-shift : une saison complète de 24 manches avec six week-ends sprint. Les saisons s&#x27;enchaînent sans fin : bâtissez une dynastie sur plusieurs années.</p>
+<h2>À VOTRE RYTHME</h2>
+<ul>
+<li>Entièrement hors ligne</li>
+<li>Course Wi-Fi : courses amicales entre amis sur le même Wi-Fi, chacun avec son écurie de carrière</li>
+<li>Sans publicité ni achat intégré</li>
+<li>Sans compte, aucune donnée collectée</li>
+<li>Jouez sur téléphone, tablette ou PC (Steam), au tactile, à la souris et au clavier ou à la manette (Steam Deck)</li>
+<li>10 langues</li>
+</ul>
+<p class="note">Toutes les équipes, tous les pilotes et circuits sont fictifs. Simula GP n&#x27;est affilié à aucun championnat réel.</p>
+</section>
+</main>
+<footer id="support"><div class="wrap">
+<h2>Assistance</h2>
+<p>Questions, bugs ou suggestions : écrivez-nous à tout moment.</p>
+<p><a href="mailto:dokgi88@gmail.com">dokgi88@gmail.com</a></p>
+<div class="links"><a href="https://dokgi88.github.io/simula-gp-privacy/fr/">Politique de confidentialité</a><span class="small">© 2026 Yeoreumi</span></div>
+</div></footer>
+</body>
+</html>
