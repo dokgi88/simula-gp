@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>シミュラGP：レーシング監督</title>
+<title>Simula GP</title>
 <meta name="description" content="マシン開発、ピットクルー育成、レース戦略。すべてを指揮するレーシングチーム経営シミュレーション。">
 <meta name="theme-color" content="#06070a">
 <link rel="icon" href="../icon.png">
@@ -19,7 +19,7 @@
 <link rel="alternate" hreflang="de" href="https://dokgi88.github.io/simula-gp/de/">
 <link rel="alternate" hreflang="ru" href="https://dokgi88.github.io/simula-gp/ru/">
 <link rel="alternate" hreflang="x-default" href="https://dokgi88.github.io/simula-gp/">
-<meta property="og:title" content="シミュラGP：レーシング監督">
+<meta property="og:title" content="Simula GP">
 <meta property="og:description" content="マシン開発、ピットクルー育成、レース戦略。すべてを指揮するレーシングチーム経営シミュレーション。">
 <meta property="og:image" content="https://dokgi88.github.io/simula-gp/title.jpg">
 <meta property="og:type" content="website">
@@ -38,8 +38,8 @@ nav.langs a[aria-current] { color:var(--text); font-weight:600; box-shadow:inset
 .wrap { max-width:1080px; margin:0 auto; padding:0 16px; }
 header { border-bottom:1px solid var(--line); }
 header .wrap { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 24px; padding-top:14px; padding-bottom:14px; }
-.brand { font-size:22px; font-weight:800; letter-spacing:.02em; text-decoration:none; white-space:nowrap; }
-.brand span { background:var(--accent); padding:0 7px; margin-left:5px; }
+.brand { display:block; }
+.brand img { display:block; }
 .hero { padding:48px 0 32px; display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:center; }
 .hero > div { min-width:0; }
 .hero img { width:128px; height:128px; border-radius:24px; display:block; }
@@ -70,26 +70,26 @@ footer .links { margin-top:18px; display:flex; flex-wrap:wrap; gap:6px 18px; fon
 </head>
 <body>
 <!-- tools/web_pages.py 가 store/listing/*.md 에서 굽는다 — 손으로 고치지 않는다 -->
-<header><div class="wrap"><a class="brand" href="https://dokgi88.github.io/simula-gp/ja/">SIMULA<span>GP</span></a><nav class="langs"><a href="https://dokgi88.github.io/simula-gp/">English</a> <a href="https://dokgi88.github.io/simula-gp/ko/">한국어</a> <a href="https://dokgi88.github.io/simula-gp/ja/" aria-current="page">日本語</a> <a href="https://dokgi88.github.io/simula-gp/zh-cn/">简体中文</a> <a href="https://dokgi88.github.io/simula-gp/zh-tw/">繁體中文</a> <a href="https://dokgi88.github.io/simula-gp/es/">Español</a> <a href="https://dokgi88.github.io/simula-gp/pt-br/">Português (Brasil)</a> <a href="https://dokgi88.github.io/simula-gp/fr/">Français</a> <a href="https://dokgi88.github.io/simula-gp/de/">Deutsch</a> <a href="https://dokgi88.github.io/simula-gp/ru/">Русский</a></nav></div></header>
+<header><div class="wrap"><a class="brand" href="https://dokgi88.github.io/simula-gp/ja/"><img src="../logo.png" width="111" height="44" alt="Simula GP"></a><nav class="langs"><a href="https://dokgi88.github.io/simula-gp/">English</a> <a href="https://dokgi88.github.io/simula-gp/ko/">한국어</a> <a href="https://dokgi88.github.io/simula-gp/ja/" aria-current="page">日本語</a> <a href="https://dokgi88.github.io/simula-gp/zh-cn/">简体中文</a> <a href="https://dokgi88.github.io/simula-gp/zh-tw/">繁體中文</a> <a href="https://dokgi88.github.io/simula-gp/es/">Español</a> <a href="https://dokgi88.github.io/simula-gp/pt-br/">Português (Brasil)</a> <a href="https://dokgi88.github.io/simula-gp/fr/">Français</a> <a href="https://dokgi88.github.io/simula-gp/de/">Deutsch</a> <a href="https://dokgi88.github.io/simula-gp/ru/">Русский</a></nav></div></header>
 <main class="wrap">
 <section class="hero">
 <img src="../icon.png" width="128" height="128" alt="">
 <div>
-<h1>シミュラGP：レーシング監督</h1>
+<h1>Simula GP</h1>
 <p class="sub">自分だけのレーシングチームを率いろ</p>
 <p class="lead">ハンドルを握るのはドライバー。勝利を掴むのは、あなたの采配。マシンを開発し、ドライバーを獲得し、ピットクルーを鍛え、ピットウォールから戦略を指示しよう。レースは24のオリジナルミニチュアサーキットでテレビ中継のように展開。完全オフライン、広告なし、10言語対応。</p>
 <div class="chips"><span class="chip soon">近日公開</span><span class="chip">iPhone · iPad · Android · Steam (Windows · macOS)</span></div>
 </div>
 </section>
 <section class="shots">
-<img src="../title.jpg" width="1440" height="666" loading="eager" alt="シミュラGP：レーシング監督">
-<img src="../race.jpg" width="1440" height="666" loading="lazy" alt="シミュラGP：レーシング監督">
-<img src="../hq.jpg" width="1440" height="666" loading="lazy" alt="シミュラGP：レーシング監督">
-<img src="../season.jpg" width="1440" height="666" loading="lazy" alt="シミュラGP：レーシング監督">
+<img src="../title.jpg" width="1440" height="666" loading="eager" alt="Simula GP">
+<img src="../race.jpg" width="1440" height="666" loading="lazy" alt="Simula GP">
+<img src="../hq.jpg" width="1440" height="666" loading="lazy" alt="Simula GP">
+<img src="../season.jpg" width="1440" height="666" loading="lazy" alt="Simula GP">
 </section>
 <section class="about">
 <p class="tag">ハンドルを握るのはドライバー。勝利を掴むのは、あなたの采配。</p>
-<p>シミュラGPでは、10チームのうち1チームの代表として指揮をとります。マシンを開発し、ドライバーを獲得し、ピットクルーを鍛え上げ、レース中に勝負を決める指示を出す。中団チームを王者へ導けるかは、あなた次第です。</p>
+<p>Simula GPでは、10チームのうち1チームの代表として指揮をとります。マシンを開発し、ドライバーを獲得し、ピットクルーを鍛え上げ、レース中に勝負を決める指示を出す。中団チームを王者へ導けるかは、あなた次第です。</p>
 <h2>速いマシンをつくる</h2>
 <ul>
 <li>フロントウイング、リアウイング、フロア、サイドポッド、サスペンション、ブレーキ、パワーユニット、ギアボックスの8パーツを開発</li>

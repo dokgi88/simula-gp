@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>시뮬라 GP: 레이싱 감독</title>
+<title>Simula GP</title>
 <meta name="description" content="차를 개발하고, 피트 크루를 훈련하고, 전략을 짜라. 레이싱 팀 감독 시뮬레이션.">
 <meta name="theme-color" content="#06070a">
 <link rel="icon" href="../icon.png">
@@ -19,7 +19,7 @@
 <link rel="alternate" hreflang="de" href="https://dokgi88.github.io/simula-gp/de/">
 <link rel="alternate" hreflang="ru" href="https://dokgi88.github.io/simula-gp/ru/">
 <link rel="alternate" hreflang="x-default" href="https://dokgi88.github.io/simula-gp/">
-<meta property="og:title" content="시뮬라 GP: 레이싱 감독">
+<meta property="og:title" content="Simula GP">
 <meta property="og:description" content="차를 개발하고, 피트 크루를 훈련하고, 전략을 짜라. 레이싱 팀 감독 시뮬레이션.">
 <meta property="og:image" content="https://dokgi88.github.io/simula-gp/title.jpg">
 <meta property="og:type" content="website">
@@ -38,8 +38,8 @@ nav.langs a[aria-current] { color:var(--text); font-weight:600; box-shadow:inset
 .wrap { max-width:1080px; margin:0 auto; padding:0 16px; }
 header { border-bottom:1px solid var(--line); }
 header .wrap { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 24px; padding-top:14px; padding-bottom:14px; }
-.brand { font-size:22px; font-weight:800; letter-spacing:.02em; text-decoration:none; white-space:nowrap; }
-.brand span { background:var(--accent); padding:0 7px; margin-left:5px; }
+.brand { display:block; }
+.brand img { display:block; }
 .hero { padding:48px 0 32px; display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:center; }
 .hero > div { min-width:0; }
 .hero img { width:128px; height:128px; border-radius:24px; display:block; }
@@ -70,26 +70,26 @@ footer .links { margin-top:18px; display:flex; flex-wrap:wrap; gap:6px 18px; fon
 </head>
 <body>
 <!-- tools/web_pages.py 가 store/listing/*.md 에서 굽는다 — 손으로 고치지 않는다 -->
-<header><div class="wrap"><a class="brand" href="https://dokgi88.github.io/simula-gp/ko/">SIMULA<span>GP</span></a><nav class="langs"><a href="https://dokgi88.github.io/simula-gp/">English</a> <a href="https://dokgi88.github.io/simula-gp/ko/" aria-current="page">한국어</a> <a href="https://dokgi88.github.io/simula-gp/ja/">日本語</a> <a href="https://dokgi88.github.io/simula-gp/zh-cn/">简体中文</a> <a href="https://dokgi88.github.io/simula-gp/zh-tw/">繁體中文</a> <a href="https://dokgi88.github.io/simula-gp/es/">Español</a> <a href="https://dokgi88.github.io/simula-gp/pt-br/">Português (Brasil)</a> <a href="https://dokgi88.github.io/simula-gp/fr/">Français</a> <a href="https://dokgi88.github.io/simula-gp/de/">Deutsch</a> <a href="https://dokgi88.github.io/simula-gp/ru/">Русский</a></nav></div></header>
+<header><div class="wrap"><a class="brand" href="https://dokgi88.github.io/simula-gp/ko/"><img src="../logo.png" width="111" height="44" alt="Simula GP"></a><nav class="langs"><a href="https://dokgi88.github.io/simula-gp/">English</a> <a href="https://dokgi88.github.io/simula-gp/ko/" aria-current="page">한국어</a> <a href="https://dokgi88.github.io/simula-gp/ja/">日本語</a> <a href="https://dokgi88.github.io/simula-gp/zh-cn/">简体中文</a> <a href="https://dokgi88.github.io/simula-gp/zh-tw/">繁體中文</a> <a href="https://dokgi88.github.io/simula-gp/es/">Español</a> <a href="https://dokgi88.github.io/simula-gp/pt-br/">Português (Brasil)</a> <a href="https://dokgi88.github.io/simula-gp/fr/">Français</a> <a href="https://dokgi88.github.io/simula-gp/de/">Deutsch</a> <a href="https://dokgi88.github.io/simula-gp/ru/">Русский</a></nav></div></header>
 <main class="wrap">
 <section class="hero">
 <img src="../icon.png" width="128" height="128" alt="">
 <div>
-<h1>시뮬라 GP: 레이싱 감독</h1>
+<h1>Simula GP</h1>
 <p class="sub">내 손으로 키우는 레이싱 팀</p>
 <p class="lead">운전대는 드라이버에게, 승리는 감독의 몫. 차를 개발하고, 드라이버를 영입하고, 피트 크루를 훈련하고, 피트월에서 전략을 지시하세요. 레이스는 24개 오리지널 미니어처 서킷에서 TV 중계처럼 펼쳐집니다. 완전 오프라인, 광고 없음, 10개 언어 지원.</p>
 <div class="chips"><span class="chip soon">출시 예정</span><span class="chip">iPhone · iPad · Android · Steam (Windows · macOS)</span></div>
 </div>
 </section>
 <section class="shots">
-<img src="../title.jpg" width="1440" height="666" loading="eager" alt="시뮬라 GP: 레이싱 감독">
-<img src="../race.jpg" width="1440" height="666" loading="lazy" alt="시뮬라 GP: 레이싱 감독">
-<img src="../hq.jpg" width="1440" height="666" loading="lazy" alt="시뮬라 GP: 레이싱 감독">
-<img src="../season.jpg" width="1440" height="666" loading="lazy" alt="시뮬라 GP: 레이싱 감독">
+<img src="../title.jpg" width="1440" height="666" loading="eager" alt="Simula GP">
+<img src="../race.jpg" width="1440" height="666" loading="lazy" alt="Simula GP">
+<img src="../hq.jpg" width="1440" height="666" loading="lazy" alt="Simula GP">
+<img src="../season.jpg" width="1440" height="666" loading="lazy" alt="Simula GP">
 </section>
 <section class="about">
 <p class="tag">운전대는 드라이버에게. 승리는 감독의 몫입니다.</p>
-<p>시뮬라 GP에서 당신은 10개 레이싱 팀 가운데 한 팀의 대표가 됩니다. 차를 개발하고, 드라이버를 영입하고, 피트 크루를 단련하고, 레이스 중 결정적인 지시를 내리세요. 중위권 팀을 챔피언으로 만드는 건 당신의 판단입니다.</p>
+<p>Simula GP에서 당신은 10개 레이싱 팀 가운데 한 팀의 대표가 됩니다. 차를 개발하고, 드라이버를 영입하고, 피트 크루를 단련하고, 레이스 중 결정적인 지시를 내리세요. 중위권 팀을 챔피언으로 만드는 건 당신의 판단입니다.</p>
 <h2>더 빠른 차를 만든다</h2>
 <ul>
 <li>프런트 윙 · 리어 윙 · 플로어 · 사이드포드 · 서스펜션 · 브레이크 · 파워 유닛 · 기어박스, 8개 부품 개발</li>
@@ -126,7 +126,7 @@ footer .links { margin-top:18px; display:flex; flex-wrap:wrap; gap:6px 18px; fon
 <li>폰 · 태블릿 · PC(Steam)에서 플레이 — 터치, 마우스 · 키보드, 컨트롤러(Steam Deck) 지원</li>
 <li>10개 언어 지원</li>
 </ul>
-<p class="note">모든 팀 · 드라이버 · 서킷은 가상입니다. 시뮬라 GP는 실제 어떤 레이싱 대회와도 관련이 없습니다.</p>
+<p class="note">모든 팀 · 드라이버 · 서킷은 가상입니다. Simula GP는 실제 어떤 레이싱 대회와도 관련이 없습니다.</p>
 </section>
 </main>
 <footer id="support"><div class="wrap">
